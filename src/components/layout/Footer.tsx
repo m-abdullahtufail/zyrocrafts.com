@@ -4,7 +4,7 @@ import { footerSections } from "@/lib/data";
 export function Footer() {
   return (
     <footer className="bg-[#2A1507]">
-      <div className="max-w-[2000px] mx-auto px-6 lg:px-14 py-16">
+      <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-14 py-12 sm:py-16">
         <div className="flex flex-col md:flex-row gap-12 md:gap-8 mb-12">
           {/* Logo + description */}
           <div className="md:w-1/3">

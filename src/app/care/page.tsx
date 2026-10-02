@@ -41,19 +41,19 @@ export default function CarePage() {
 
   return (
     <section className="bg-cream min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-16 pb-12 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-10 sm:pb-12 text-center">
         <p className="text-tan text-sm font-medium tracking-widest uppercase mb-4">
           Keep it for decades
         </p>
-        <h1 className="font-display text-4xl md:text-5xl font-semibold text-ink">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-ink">
           Care &amp; frequently asked questions
         </h1>
-        <p className="mt-6 text-ink/60 max-w-2xl mx-auto text-lg leading-relaxed">
+        <p className="mt-6 text-ink/60 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
           Leather rewards a little attention. Here&apos;s everything you need to keep a Zyrocrafts piece in shape for years.
         </p>
       </div>
 
-      <div className="max-w-3xl mx-auto px-6 lg:px-8 pb-20">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
@@ -66,9 +66,9 @@ export default function CarePage() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left"
+                className="w-full flex items-center justify-between px-4 sm:px-6 py-4 sm:py-5 text-left"
               >
-                <span className="font-display text-lg font-medium text-ink pr-4">
+                <span className="font-display text-base sm:text-lg font-medium text-ink pr-4">
                   {faq.question}
                 </span>
                 <svg
@@ -95,7 +95,7 @@ export default function CarePage() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-5 text-ink/60 leading-relaxed">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-5 text-ink/60 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

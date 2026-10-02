@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { navItems } from "@/lib/data";
 import { useCart } from "@/lib/cart/CartContext";
 
@@ -10,6 +11,7 @@ export function Nav() {
   const pathname = usePathname();
   const { totalItems, openCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -18,8 +20,15 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   const isHome = pathname === "/";
-  const showBrown = !isHome || scrolled;
+  const showBrown = !isHome || scrolled || menuOpen;
 
   return (
     <nav
@@ -27,10 +36,10 @@ export function Nav() {
         showBrown ? "bg-[#2A1507]/95 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="px-9 lg:px-11">
+      <div className="px-5 sm:px-9 lg:px-11">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center">
-            <img src="/Logo/1 (1).png" alt="Zyrocrafts" className="h-12 w-auto" />
+            <img src="/Logo/1 (1).png" alt="Zyrocrafts" className="h-10 sm:h-12 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -53,7 +62,7 @@ export function Nav() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1 sm:gap-4">
             <button
               onClick={openCart}
               className="relative text-cream p-2 hover:text-tan transition-colors"
@@ -73,7 +82,52 @@ export function Nav() {
                 </span>
               )}
             </button>
+
+            <button
+              onClick={() => setMenuOpen((open) => !open)}
+              className="md:hidden text-cream p-2 hover:text-tan transition-colors"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? (
+                <X className="w-6 h-6" strokeWidth={1.5} />
+              ) : (
+                <Menu className="w-6 h-6" strokeWidth={1.5} />
+              )}
+            </button>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ease-out ${
+          menuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-cream/10 px-5 pt-2 pb-6 max-h-[calc(80vh-4rem)] overflow-y-auto">
+          <ul>
+            {navItems.map((item) => (
+              <li key={item.href} className="border-b border-cream/10 last:border-b-0">
+                <Link
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block py-3.5 text-sm font-medium tracking-wide transition-colors ${
+                    pathname === item.href ? "text-tan" : "text-cream/75 hover:text-cream"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/collection"
+            onClick={() => setMenuOpen(false)}
+            className="mt-5 block px-8 py-3 text-center text-sm font-medium bg-[#EDE3D5] text-[#2A1507] rounded-full hover:bg-[#E0D5C5] transition-colors"
+          >
+            Shop the collection
+          </Link>
         </div>
       </div>
     </nav>

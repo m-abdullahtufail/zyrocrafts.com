@@ -32,7 +32,7 @@ export function AboutUsSection() {
 
   return (
     <section className="bg-cream py-20 md:py-28">
-      <div className="max-w-[2000px] mx-auto px-6 lg:px-14">
+      <div className="max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Text */}
           <div>

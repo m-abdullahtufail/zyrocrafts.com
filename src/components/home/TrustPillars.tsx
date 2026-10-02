@@ -53,7 +53,7 @@ export function TrustPillars() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative rounded-2xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.06)] p-8 text-center lg:text-left overflow-hidden"
+              className="relative rounded-2xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.06)] p-6 sm:p-8 text-center lg:text-left overflow-hidden"
             >
               <div className="w-12 h-12 mx-auto lg:mx-0 mb-4 rounded-full bg-tan/15 flex items-center justify-center">
                 <span className="text-tan font-display text-base font-semibold">

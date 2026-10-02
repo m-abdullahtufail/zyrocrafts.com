@@ -140,7 +140,7 @@ export function CategoriesSection() {
         {/* Column 1 — Jackets */}
         <Link
           href={`/collection/${g}`}
-          className="group relative flex min-h-[440px] flex-col overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
+          className="group relative flex min-h-[260px] sm:min-h-[360px] md:min-h-[440px] flex-col overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
         >
           <CategoryPhoto src="/categories/jackets.png" alt="Brown leather jacket" />
           <div className="relative">
@@ -154,7 +154,7 @@ export function CategoriesSection() {
           <Link
             href={`/collection/${g}`}
             aria-label="Shop bags"
-            className="group relative block min-h-[280px] overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
+            className="group relative block min-h-[200px] sm:min-h-[280px] overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
           >
             <CategoryPhoto src="/categories/bags.png" alt="Leather duffle bag" />
             <div className="relative">
@@ -165,7 +165,7 @@ export function CategoriesSection() {
           {/* Belts */}
           <Link
             href={`/collection/${g}`}
-            className="group relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
+            className="group relative flex min-h-[230px] sm:min-h-[320px] flex-col overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
           >
             <CategoryPhoto src="/categories/belts.png" alt="Rolled leather belts" />
             <div className="relative">
@@ -179,7 +179,7 @@ export function CategoriesSection() {
           {/* Wallets */}
           <Link
             href={`/collection/${g}`}
-            className="group relative flex min-h-[360px] flex-col overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
+            className="group relative flex min-h-[300px] sm:min-h-[360px] flex-col overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
           >
             <CategoryPhoto src="/categories/wallets.png" alt="Leather wallets" />
             <div className="relative">
@@ -198,7 +198,7 @@ export function CategoriesSection() {
           <Link
             href={`/collection/${g}`}
             aria-label="Shop accessories"
-            className="group relative block min-h-[240px] overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
+            className="group relative block min-h-[170px] sm:min-h-[240px] overflow-hidden rounded-2xl bg-[#2A1507] p-5 md:p-6"
           >
             <CategoryPhoto src="/categories/accessories.png" alt="Leather gloves and small goods" />
             <div className="relative">

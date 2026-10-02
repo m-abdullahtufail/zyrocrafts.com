@@ -29,8 +29,8 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
 
   return (
     <section className="bg-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <nav className="mb-8 text-sm text-ink/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <nav className="mb-6 sm:mb-8 text-xs sm:text-sm text-ink/50 flex flex-wrap gap-y-1">
           <Link href="/" className="hover:text-ink transition-colors">Home</Link>
           <span className="mx-2">/</span>
           <Link href={`/collection/${product.gender.toLowerCase()}`} className="hover:text-ink transition-colors">Collection</Link>
@@ -74,7 +74,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             <p className="text-tan text-sm font-medium tracking-wider uppercase mb-3">
               {product.kicker}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl font-semibold text-ink">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-ink">
               {product.name}
             </h1>
             <p className="mt-4 text-2xl text-ink font-medium">
@@ -115,12 +115,12 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             </button>
 
             <div className="mt-12 border-t border-saddle/20 pt-8">
-              <div className="flex gap-6 border-b border-saddle/20 mb-6">
+              <div className="flex flex-wrap gap-x-5 sm:gap-x-6 gap-y-1 border-b border-saddle/20 mb-6">
                 {tabs.map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
-                    className={`pb-3 text-sm font-medium transition-colors border-b-2 -mb-[2px] ${
+                    className={`pb-3 text-xs sm:text-sm font-medium transition-colors border-b-2 -mb-[2px] ${
                       activeTab === tab
                         ? "border-tan text-tan"
                         : "border-transparent text-ink/50 hover:text-ink"
@@ -158,7 +158,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
             <h2 className="font-display text-2xl font-semibold text-ink mb-8">
               You may also like
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
               {related.map((item) => (
                 <Link
                   key={item.slug}
@@ -170,7 +170,7 @@ export default function ProductPage({ params }: { params: Promise<{ slug: string
                       {item.name}
                     </div>
                   </div>
-                  <h3 className="font-display text-lg font-semibold text-ink group-hover:text-tan transition-colors">
+                  <h3 className="font-display text-sm sm:text-lg font-semibold text-ink group-hover:text-tan transition-colors">
                     {item.name}
                   </h3>
                   <p className="mt-1 text-tan text-sm">

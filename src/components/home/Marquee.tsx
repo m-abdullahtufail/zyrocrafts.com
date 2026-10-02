@@ -9,7 +9,7 @@ export function Marquee() {
   ];
 
   return (
-    <div className="bg-saddle/10 border-y border-saddle/20 overflow-hidden py-4 px-11 lg:px-14">
+    <div className="bg-saddle/10 border-y border-saddle/20 overflow-hidden py-4 px-6 sm:px-11 lg:px-14">
       <div className="animate-marquee flex whitespace-nowrap">
         {[...items, ...items, ...items, ...items, ...items, ...items].map((item, i) => (
           <span key={i} className="mx-8 text-sm font-medium text-ink/70 tracking-wider uppercase">

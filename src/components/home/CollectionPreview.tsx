@@ -19,7 +19,7 @@ export function CollectionPreview() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
           {previewProducts.map((product, index) => (
             <motion.div
               key={product.slug}
@@ -45,7 +45,7 @@ export function CollectionPreview() {
                     </div>
                   )}
                 </div>
-                <h3 className="font-display text-lg font-semibold text-ink group-hover:text-tan transition-colors">
+                <h3 className="font-display text-sm sm:text-base lg:text-lg font-semibold text-ink group-hover:text-tan transition-colors">
                   {product.name}
                 </h3>
                 <p className="mt-1 text-tan text-sm">

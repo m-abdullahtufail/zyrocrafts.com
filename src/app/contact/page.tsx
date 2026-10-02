@@ -6,30 +6,39 @@ import { motion } from "framer-motion";
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const message = String(data.get("message") || "").trim();
+    const subject = encodeURIComponent(`Message from ${name || "Zyrocrafts website"}`);
+    const body = encodeURIComponent(
+      `${message}\n\n— ${name}${email ? `\n${email}` : ""}`
+    );
+    window.location.href = `mailto:info@zyrocrafts.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
   return (
     <section className="bg-cream min-h-screen">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 pb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-16 sm:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
           {/* Left — Heading + Contact Details */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-ink leading-tight">
               Need support?<br />
               Contact our team!
             </h1>
-            <p className="mt-6 text-ink/60 text-lg leading-relaxed">
+            <p className="mt-6 text-ink/60 text-base sm:text-lg leading-relaxed">
               Reach Out With Your Club Questions Or For Details About Our Programs. We&apos;re Glad To Help You Join Zyrocrafts.
             </p>
 
-            <div className="mt-12 space-y-8">
+            <div className="mt-8 sm:mt-12 space-y-6 sm:space-y-8">
               {/* Address */}
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-[#EDE3D5] flex items-center justify-center shrink-0">
@@ -66,7 +75,9 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <a
-                  href="tel:+923137521218"
+                  href="https://wa.me/923137521218"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-ink/70 hover:text-tan transition-colors pt-2"
                 >
                   +92 313 7521218
@@ -82,7 +93,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {submitted ? (
-              <div className="bg-saddle/10 rounded-lg p-12 text-center h-full flex flex-col items-center justify-center">
+              <div className="bg-saddle/10 rounded-lg p-8 sm:p-12 text-center h-full flex flex-col items-center justify-center">
                 <p className="font-display text-xl text-ink">
                   Thank you for your message.
                 </p>
@@ -99,6 +110,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     required
                     className="w-full px-4 py-3 bg-saddle/10 border border-saddle/30 rounded text-ink placeholder:text-ink/40 focus:outline-none focus:border-tan transition-colors"
                   />
@@ -110,6 +122,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     className="w-full px-4 py-3 bg-saddle/10 border border-saddle/30 rounded text-ink placeholder:text-ink/40 focus:outline-none focus:border-tan transition-colors"
                   />
@@ -120,6 +133,7 @@ export default function ContactPage() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={6}
                     required
                     className="w-full px-4 py-3 bg-saddle/10 border border-saddle/30 rounded text-ink placeholder:text-ink/40 focus:outline-none focus:border-tan transition-colors resize-none"

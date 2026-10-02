@@ -15,19 +15,19 @@ export default function MenCollectionPage() {
 
   return (
     <section className="bg-cream min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 pb-10 sm:pb-12">
         <p className="text-tan text-sm font-medium tracking-widest uppercase mb-4">
           {filtered.length} pieces
         </p>
-        <h1 className="font-display text-4xl md:text-5xl font-semibold text-ink">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-ink">
           Men&apos;s Collection
         </h1>
-        <p className="mt-4 text-ink/60 max-w-2xl text-lg">
+        <p className="mt-4 text-ink/60 max-w-2xl text-base sm:text-lg">
           Every style below is cut from a single, numbered hide lot. Sizes and colorways are limited to what that lot can produce.
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
@@ -45,8 +45,8 @@ export default function MenCollectionPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {filtered.map((product, index) => (
             <motion.div
               key={product.slug}
@@ -75,7 +75,7 @@ export default function MenCollectionPage() {
                 <p className="text-tan text-xs font-medium tracking-wider uppercase mb-1">
                   {product.category}
                 </p>
-                <h3 className="font-display text-lg font-semibold text-ink group-hover:text-tan transition-colors">
+                <h3 className="font-display text-sm sm:text-base lg:text-lg font-semibold text-ink group-hover:text-tan transition-colors">
                   {product.name}
                 </h3>
                 <p className="mt-1 text-ink/60 text-sm">

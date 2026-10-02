@@ -17,7 +17,7 @@ export function Newsletter() {
 
   return (
     <section className="bg-saddle/10 py-20 md:py-28">
-      <div className="max-w-2xl mx-auto px-6 lg:px-8 text-center">
+      <div className="max-w-2xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

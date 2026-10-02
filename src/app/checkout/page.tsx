@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useCart } from "@/lib/cart/CartContext";
 import { formatPrice } from "@/lib/data";
 import { motion } from "framer-motion";
@@ -40,17 +41,17 @@ export default function CheckoutPage() {
   if (items.length === 0 && step !== "confirmation") {
     return (
       <section className="bg-cream min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="font-display text-3xl font-semibold text-ink mb-4">
+        <div className="text-center px-6">
+          <h1 className="font-display text-2xl sm:text-3xl font-semibold text-ink mb-4">
             Your bag is empty
           </h1>
           <p className="text-ink/60 mb-8">Add some items before checking out.</p>
-          <a
+          <Link
             href="/collection/men"
-            className="px-8 py-3.5 bg-[#E2D9C9] text-[#2A1507] font-medium rounded-full hover:bg-[#C08552] transition-colors"
+            className="inline-block px-8 py-3.5 bg-[#E2D9C9] text-[#2A1507] font-medium rounded-full hover:bg-[#C08552] transition-colors"
           >
             Browse the collection
-          </a>
+          </Link>
         </div>
       </section>
     );
@@ -62,14 +63,14 @@ export default function CheckoutPage() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-md"
+          className="text-center max-w-md px-6"
         >
           <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-tan/10 flex items-center justify-center">
             <svg className="w-10 h-10 text-tan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h1 className="font-display text-3xl font-semibold text-ink mb-4">
+          <h1 className="font-display text-2xl sm:text-3xl font-semibold text-ink mb-4">
             Order confirmed
           </h1>
           <p className="text-ink/60 mb-2">
@@ -78,12 +79,12 @@ export default function CheckoutPage() {
           <p className="text-ink/50 text-sm mb-8">
             A confirmation email will be sent to {formData.email}.
           </p>
-          <a
+          <Link
             href="/"
-            className="px-8 py-3.5 bg-[#E2D9C9] text-[#2A1507] font-medium rounded-full hover:bg-[#C08552] transition-colors"
+            className="inline-block px-8 py-3.5 bg-[#E2D9C9] text-[#2A1507] font-medium rounded-full hover:bg-[#C08552] transition-colors"
           >
             Return home
-          </a>
+          </Link>
         </motion.div>
       </section>
     );
@@ -91,11 +92,11 @@ export default function CheckoutPage() {
 
   return (
     <section className="bg-cream min-h-screen">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Header */}
-        <div className="mb-12">
-          <h1 className="font-display text-4xl font-semibold text-ink">Checkout</h1>
-          <div className="flex gap-4 mt-6">
+        <div className="mb-8 sm:mb-12">
+          <h1 className="font-display text-3xl sm:text-4xl font-semibold text-ink">Checkout</h1>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-5 sm:mt-6">
             <button
               onClick={() => setStep("details")}
               className={`text-sm font-medium transition-colors ${
@@ -117,7 +118,7 @@ export default function CheckoutPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Form */}
           <div className="lg:col-span-2">
             {step === "details" && (
@@ -358,7 +359,7 @@ export default function CheckoutPage() {
 
           {/* Order summary */}
           <div className="lg:col-span-1">
-            <div className="bg-saddle/10 border border-saddle/20 rounded-lg p-6 sticky top-24">
+            <div className="bg-saddle/10 border border-saddle/20 rounded-lg p-5 sm:p-6 lg:sticky lg:top-24">
               <h3 className="font-display text-lg font-semibold text-ink mb-4">
                 Order summary
               </h3>

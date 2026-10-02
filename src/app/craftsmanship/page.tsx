@@ -45,19 +45,19 @@ const stats = [
 export default function CraftsmanshipPage() {
   return (
     <section className="bg-cream min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-16 pb-12 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 pb-10 sm:pb-12 text-center">
         <p className="text-tan text-sm font-medium tracking-widest uppercase mb-4">
           Hide to seam
         </p>
-        <h1 className="font-display text-4xl md:text-5xl font-semibold text-ink">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-ink">
           Nothing here is outsourced.
         </h1>
-        <p className="mt-6 text-ink/60 max-w-2xl mx-auto text-lg leading-relaxed">
+        <p className="mt-6 text-ink/60 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
           Every Zyrocrafts piece passes through the same six hands, in the same Sialkot workshop, from raw hide to finished garment.
         </p>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 pb-20">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-20">
         <div className="space-y-16">
           {steps.map((step, index) => (
             <motion.div
@@ -66,9 +66,9 @@ export default function CraftsmanshipPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="flex gap-8 items-start"
+              className="flex gap-4 sm:gap-8 items-start"
             >
-              <span className="text-tan font-display text-3xl font-semibold shrink-0">
+              <span className="text-tan font-display text-2xl sm:text-3xl font-semibold shrink-0">
                 {step.number}
               </span>
               <div>
@@ -85,8 +85,8 @@ export default function CraftsmanshipPage() {
       </div>
 
       <div className="bg-saddle/10 border-y border-saddle/20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -95,7 +95,7 @@ export default function CraftsmanshipPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <p className="font-display text-3xl md:text-4xl font-semibold text-tan">
+                <p className="font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-tan">
                   {stat.value}
                 </p>
                 <p className="mt-2 text-ink/50 text-sm">{stat.label}</p>
