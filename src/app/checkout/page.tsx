@@ -269,9 +269,6 @@ export default function CheckoutPage() {
                   <div className="px-4 py-2 bg-tan/10 border border-tan rounded text-tan text-sm font-medium">
                     Credit card
                   </div>
-                  <div className="px-4 py-2 bg-saddle/10 border border-saddle/30 rounded text-ink/50 text-sm">
-                    Bank transfer
-                  </div>
                 </div>
 
                 <div>
@@ -336,13 +333,6 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                {/* Installment note */}
-                <div className="bg-saddle/10 border border-saddle/20 rounded p-4">
-                  <p className="text-ink/60 text-sm">
-                    <span className="text-tan font-medium">Interest-free installments</span> — Split this order into 4 payments at checkout, no fees.
-                  </p>
-                </div>
-
                 <button
                   type="submit"
                   className="w-full py-4 bg-[#E2D9C9] text-[#2A1507] font-semibold rounded-full hover:bg-[#C08552] transition-colors mt-4"
@@ -369,10 +359,19 @@ export default function CheckoutPage() {
                     key={`${item.product.slug}-${item.size}`}
                     className="flex gap-3"
                   >
-                    <div className="w-14 h-16 bg-saddle/15 rounded flex items-center justify-center shrink-0">
-                      <span className="text-ink/30 text-[10px] text-center px-1">
-                        {item.product.name}
-                      </span>
+                    <div className="w-14 h-16 bg-saddle/15 rounded overflow-hidden flex items-center justify-center shrink-0">
+                      {item.product.images && item.product.images.length > 0 ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={item.product.images[0]}
+                          alt={item.product.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="text-ink/30 text-[10px] text-center px-1">
+                          {item.product.name}
+                        </span>
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-ink text-sm font-medium truncate">

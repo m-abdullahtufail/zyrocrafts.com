@@ -7,7 +7,7 @@ const milestones = [
     year: "2014",
     title: "The first cutting table",
     description:
-      "Hassan Raza opens a one-room workshop with two apprentices and a single roll of vegetable-tanned hide.",
+      "A one-room workshop opens with two apprentices and a single roll of vegetable-tanned hide.",
   },
   {
     year: "2019",
